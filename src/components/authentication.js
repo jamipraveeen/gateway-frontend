@@ -1,4 +1,3 @@
-import "fetch";
 import {Storage} from "./storage";
 
 export class Authentication {

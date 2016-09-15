@@ -1,8 +1,6 @@
 import {inject, customElement, bindable, bindingMode, noView} from "aurelia-framework";
 import $ from "jquery";
 import ionRangeSlider from "ion-rangeslider";
-import "ion-rangeslider/css/ion.rangeSlider.css";
-import "ion-rangeslider/css/ion.rangeSlider.skinModern.css";
 import Shared from "../../components/shared";
 
 @bindable({

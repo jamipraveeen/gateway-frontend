@@ -1,18 +1,13 @@
-import "../styles/openmotics.css";
-import "font-awesome/css/font-awesome.css";
-import "bootstrap/dist/css/bootstrap.css";
-import "admin-lte/dist/css/AdminLTE.css";
-import "admin-lte/dist/css/skins/skin-green.css";
-import "bootstrap";
-import * as Bluebird from "bluebird";
-import {I18N} from "aurelia-i18n";
 import XHR from "i18next-xhr-backend";
 import {ViewLocator} from "aurelia-framework";
-import {HttpClient} from "aurelia-fetch-client";
 import {AdminLTE} from "admin-lte";
-import {Storage} from "./components/storage";
+import environment from "./environment";
 
-Bluebird.config({warnings: false});
+Promise.config({
+    warnings: {
+        wForgottenReturn: false
+    }
+});
 
 function loadLocales(url, options, callback, data) {
     try {
@@ -28,7 +23,6 @@ function loadLocales(url, options, callback, data) {
 export async function configure(aurelia) {
     aurelia.use
         .standardConfiguration()
-        .developmentLogging()
         .globalResources([
             'resources/translate',
             'resources/togglebutton/togglebutton',
@@ -52,9 +46,13 @@ export async function configure(aurelia) {
             });
         })
         .plugin('aurelia-dialog');
+
+    if (environment.debug) {
+        aurelia.use.developmentLogging();
+    }
     aurelia.container.makeGlobal();
 
-    await aurelia.start().then((a) => {
-            a.setRoot('index');
+    await aurelia.start().then(() => {
+        aurelia.setRoot('index');
     });
 }

@@ -1,4 +1,3 @@
-import "fetch";
 import {HttpClient} from "aurelia-fetch-client";
 import {Toolbox} from "./toolbox";
 import {Storage} from "./storage";

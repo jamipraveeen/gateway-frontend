@@ -1,4 +1,3 @@
-import "fetch";
 import {Container} from "aurelia-dependency-injection";
 import {Aurelia} from "aurelia-framework";
 import {BindingSignaler} from "aurelia-templating-resources";

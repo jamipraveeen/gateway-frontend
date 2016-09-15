@@ -1,8 +1,6 @@
 import {inject, customElement, bindable, bindingMode} from "aurelia-framework";
 import $ from "jquery";
-import "bootstrap";
 import "bootstrap-toggle";
-import "bootstrap-toggle/css/bootstrap-toggle.css";
 import Shared from "../../components/shared";
 
 @bindable({

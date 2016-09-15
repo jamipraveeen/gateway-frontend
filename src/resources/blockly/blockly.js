@@ -1,5 +1,5 @@
 import {customElement, bindable, bindingMode} from "aurelia-framework";
-import * as Blockly from "node-blockly/lua";
+import * as Blockly from "node-blockly";
 import {Base} from "../../resources/base";
 import Shared from "../../components/shared";
 import {Toolbox} from "../../components/toolbox";
