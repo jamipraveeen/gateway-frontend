@@ -49,6 +49,8 @@
         "jquery": "^3.1.0",
         "node-blockly": "git+ssh://git@github.com/khenderick/node-blockly.git",
         "numeral": "^1.5.3",
+        "requirejs": "^2.3.2",
+        "text": "github:requirejs/text",
         "whatwg-fetch": "^1.0.0"
     },
     "devDependencies": {
@@ -78,6 +80,7 @@
         "node-noop": "^1.0.0",
         "protractor": "^4.0.0",
         "rimraf": "^2.5.4",
+        "source-map": "^0.5.6",
         "wait-on": "^1.5.2"
     }
 }

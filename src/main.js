@@ -1,4 +1,4 @@
-import XHR from "i18next-xhr-backend";
+import Backend from "i18next-xhr-backend";
 import {ViewLocator} from "aurelia-framework";
 import {AdminLTE} from "admin-lte";
 import environment from "./environment";
@@ -8,17 +8,6 @@ Promise.config({
         wForgottenReturn: false
     }
 });
-
-function loadLocales(url, options, callback, data) {
-    try {
-        let waitForLocale = require('bundle!locale/' + url + '.json');
-        waitForLocale((locale) => {
-            callback(locale, {status: '200'});
-        });
-    } catch (e) {
-        callback(null, {status: '404'});
-    }
-}
 
 export async function configure(aurelia) {
     aurelia.use
@@ -31,18 +20,16 @@ export async function configure(aurelia) {
             'resources/formatter'
         ])
         .plugin('aurelia-i18n', (instance) => {
-            instance.i18next.use(XHR);
+            instance.i18next.use(Backend);
             return instance.setup({
                 backend: {
-                    loadPath: '{{lng}}/{{ns}}',
-                    parse: (data) => data,
-                    ajax: loadLocales
+                    loadPath: '/static/locale/{{lng}}/{{ns}}.json'
                 },
                 lng: 'en',
                 attributes: ['data-i18n', 't', 'i18n'],
                 fallbackLng: 'nl',
                 debug: false,
-                ns: ['translation', 'nav', 'secuident']
+                ns: ['translation']
             });
         })
         .plugin('aurelia-dialog');
