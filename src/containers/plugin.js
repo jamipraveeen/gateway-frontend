@@ -1,5 +1,4 @@
 import {computedFrom} from "aurelia-framework";
-import Shared from "../components/shared";
 import {BaseObject} from "./baseobject";
 import {PluginConfig} from "../containers/plugin-config";
 import {Refresher} from "../components/refresher";
@@ -7,7 +6,6 @@ import {Refresher} from "../components/refresher";
 export class Plugin extends BaseObject {
     constructor(name) {
         super();
-        this.api = Shared.get('api');
         this.refresher = new Refresher(() => {
             this.loadLogs();
         }, 1000);

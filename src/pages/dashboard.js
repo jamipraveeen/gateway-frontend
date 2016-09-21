@@ -1,6 +1,5 @@
 import {computedFrom} from "aurelia-framework";
 import {Base} from "../resources/base";
-import Shared from "../components/shared";
 import {Refresher} from "../components/refresher";
 import {Toolbox} from "../components/toolbox";
 import {Output} from "../containers/output";
@@ -9,8 +8,6 @@ import {Plugin} from "../containers/plugin";
 export class Dashboard extends Base {
     constructor() {
         super();
-        this.api = Shared.get('api');
-        this.signaler = Shared.get('signaler');
         this.refresher = new Refresher(() => {
             this.loadOutputs().then(() => {
                 this.signaler.signal('reload-outputs');

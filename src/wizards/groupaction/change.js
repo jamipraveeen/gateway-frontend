@@ -1,11 +1,9 @@
 import {computedFrom} from "aurelia-framework";
-import Shared from "../../components/shared";
 import {Step} from "../basewizard";
 
 export class Change extends Step {
     constructor(id, data) {
         super(id);
-        this.api = Shared.get('api');
         this.data = data;
     }
 

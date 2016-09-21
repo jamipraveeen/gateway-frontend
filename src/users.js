@@ -1,12 +1,14 @@
 import {AdminLTE} from "admin-lte";
+import {inject} from "aurelia-property-injection";
+import {Router} from 'aurelia-router';
 import {Base} from "./resources/base";
-import Shared from "./components/shared";
 
 export class Users extends Base {
+    @inject(Router)
+    router;
+
     constructor() {
         super();
-        this.router = Shared.get('router');
-        this.api = Shared.get('api');
     };
 
     // Aurelia

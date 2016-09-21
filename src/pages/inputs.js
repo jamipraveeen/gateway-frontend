@@ -1,6 +1,5 @@
 import {computedFrom} from "aurelia-framework";
 import {Base} from "../resources/base";
-import Shared from "../components/shared";
 import {Refresher} from "../components/refresher";
 import {Toolbox} from "../components/toolbox";
 import {Input} from "../containers/input";
@@ -9,8 +8,6 @@ import {Output} from "../containers/output";
 export class Inputs extends Base {
     constructor() {
         super();
-        this.api = Shared.get('api');
-        this.signaler = Shared.get('signaler');
         this.refresher = new Refresher(() => {
             this.loadInputs().then(() => {
                 this.signaler.signal('reload-inputs');

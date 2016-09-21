@@ -1,14 +1,16 @@
 import {computedFrom} from "aurelia-framework";
+import {inject} from "aurelia-property-injection";
+import {DialogService} from "aurelia-dialog";
 import {Base} from "../resources/base";
-import Shared from "../components/shared";
 import {Refresher} from "../components/refresher";
 import {DiscoverWizard} from "../wizards/discover/index";
 
 export class Energy extends Base {
+    @inject(DialogService)
+    dialogService;
+
     constructor() {
         super();
-        this.api = Shared.get('api');
-        this.dialogService = Shared.get('dialogService');
         this.refresher = new Refresher(() => {
             this.loadModuleInformation();
             this.loadVersions();

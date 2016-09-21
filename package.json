@@ -2,7 +2,6 @@
     "name": "openmotics-frontend",
     "version": "0.2.0",
     "description": "The OpenMotics frontend",
-    "main": "dist/openmotics.js",
     "productName": "OpenMotics frontend",
     "scripts": {
         "webdriver:update": "cross-env ./node_modules/.bin/webdriver-manager update",
@@ -63,6 +62,7 @@
         "aurelia-logging-console": "^1.0.0",
         "aurelia-pal-browser": "^1.0.0",
         "aurelia-polyfills": "^1.0.0",
+        "aurelia-property-injection": "^0.4.3",
         "aurelia-route-recognizer": "^1.0.0",
         "aurelia-router": "^1.0.2",
         "aurelia-templating-binding": "^1.0.0",
@@ -116,7 +116,7 @@
         "protractor": "^4.0.0",
         "rimraf": "^2.5.4",
         "wait-on": "^1.5.2",
-        "webpack": ">=2.1.0-beta.22 || ^2.1.0",
+        "webpack": "=2.1.0-beta.22 || ^2.1.0",
         "webpack-dev-server": ">=2.1.0-beta.0 || ^2.1.0"
     },
     "babel": {

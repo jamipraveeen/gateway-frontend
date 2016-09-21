@@ -1,9 +1,9 @@
-import {inject, customElement, bindable, bindingMode} from "aurelia-framework";
+import {customElement, bindable, bindingMode} from "aurelia-framework";
+import {inject} from "aurelia-property-injection";
 import $ from "jquery";
 import "bootstrap";
 import "bootstrap-toggle";
 import "bootstrap-toggle/css/bootstrap-toggle.css";
-import Shared from "../../components/shared";
 
 @bindable({
     name: 'checked',
@@ -13,11 +13,12 @@ import Shared from "../../components/shared";
     name: 'options'
 })
 @customElement('toggle-button')
-@inject(Element)
 export class ToggleButton {
+    @inject(Element)
+    i18n;
+
     constructor(element) {
         this.element = element;
-        this.i18n = Shared.get('i18n');
         this._lastChecked = undefined;
     }
 

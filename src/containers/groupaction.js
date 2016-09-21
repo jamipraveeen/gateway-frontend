@@ -1,10 +1,8 @@
-import Shared from "../components/shared";
 import {BaseObject} from "./baseobject";
 
 export class GroupAction extends BaseObject {
     constructor(id) {
         super();
-        this.api = Shared.get('api');
         this.processing = false;
         this.key = 'id';
         this.id = id;

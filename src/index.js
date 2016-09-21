@@ -1,13 +1,18 @@
 import {AdminLTE} from "admin-lte";
+import {inject} from "aurelia-property-injection";
+import {Router} from 'aurelia-router';
+import {Authentication} from "./components/authentication";
 import {Base} from "./resources/base";
-import Shared from "./components/shared";
 import {Storage} from "./components/storage";
 
 export class Index extends Base {
+    @inject(Router)
+    router;
+    @inject(Authentication)
+    authentication;
+
     constructor() {
         super();
-        this.router = Shared.get('router');
-        this.api = Shared.get('api');
     };
 
     // Aurelia
@@ -17,9 +22,8 @@ export class Index extends Base {
             config.addAuthorizeStep({
                 run: (navigationInstruction, next) => {
                     if (navigationInstruction.config.auth) {
-                        let authentication = Shared.get('authentication');
-                        if (!authentication.isLoggedIn) {
-                            return next.cancel(authentication.logout());
+                        if (!this.authentication.isLoggedIn) {
+                            return next.cancel(this.authentication.logout());
                         }
                     }
                     return next();

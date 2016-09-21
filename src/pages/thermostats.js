@@ -1,6 +1,5 @@
 import {computedFrom} from "aurelia-framework";
 import {Base} from "../resources/base";
-import Shared from "../components/shared";
 import {Refresher} from "../components/refresher";
 import {Toolbox} from "../components/toolbox";
 import {Thermostat, GlobalThermostat} from "../containers/thermostat";
@@ -8,8 +7,6 @@ import {Thermostat, GlobalThermostat} from "../containers/thermostat";
 export class Thermostats extends Base {
     constructor() {
         super();
-        this.api = Shared.get('api');
-        this.signaler = Shared.get('signaler');
         this.refresher = new Refresher(() => {
             this.loadThermostats().then(() => {
                 this.signaler.signal('reload-thermostats');

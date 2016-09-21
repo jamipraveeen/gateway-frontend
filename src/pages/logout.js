@@ -1,10 +1,13 @@
+import {inject} from "aurelia-property-injection";
 import {Base} from "../resources/base";
-import Shared from "../components/shared";
+import {Authentication} from "../components/authentication";
 
 export class Logout extends Base {
+    @inject(Authentication)
+    authentication;
+
     constructor() {
         super();
-        this.authentication = Shared.get('authentication');
     };
 
     // Aurelia

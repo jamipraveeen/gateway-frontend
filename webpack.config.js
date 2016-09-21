@@ -42,6 +42,7 @@ const coreBundles = {
         'aurelia-pal-browser',
         'aurelia-path',
         'aurelia-polyfills',
+        'aurelia-property-injection',
         'aurelia-route-recognizer',
         'aurelia-router',
         'aurelia-task-queue',

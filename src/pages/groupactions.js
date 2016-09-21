@@ -1,17 +1,18 @@
 import {computedFrom} from "aurelia-framework";
+import {inject} from "aurelia-property-injection";
+import {DialogService} from "aurelia-dialog";
 import {Base} from "../resources/base";
-import Shared from "../components/shared";
 import {Refresher} from "../components/refresher";
 import {Toolbox} from "../components/toolbox";
 import {GroupAction} from "../containers/groupaction";
 import {GroupActionWizard} from "../wizards/groupaction/index";
 
 export class GroupActions extends Base {
+    @inject(DialogService)
+    dialogService;
+
     constructor() {
         super();
-        this.api = Shared.get('api');
-        this.signaler = Shared.get('signaler');
-        this.dialogService = Shared.get('dialogService');
         this.refresher = new Refresher(() => {
             this.loadGroupActions().then(() => {
                 this.signaler.signal('reload-groupactions');

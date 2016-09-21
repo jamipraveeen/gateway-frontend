@@ -1,13 +1,10 @@
 import {computedFrom} from "aurelia-framework";
 import {Base} from "../resources/base";
-import Shared from "../components/shared";
 import {Refresher} from "../components/refresher";
 
 export class Create extends Base {
     constructor() {
         super();
-        this.api = Shared.get('api');
-        this.signaler = Shared.get('signaler');
         this.refresher = new Refresher(() => {
             this.loadUsers().then(() => {
                 this.authorized = true;

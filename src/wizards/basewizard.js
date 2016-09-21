@@ -1,11 +1,10 @@
 import {computedFrom} from "aurelia-framework";
-import {Base} from "../resources/base";
 import Shared from "../components/shared";
+import {Base} from "../resources/base";
 
 export class BaseWizard extends Base {
     constructor(controller) {
         super();
-        this.i18n = Shared.get('i18n');
         this.controller = controller;
         this.next = this.i18n.tr('generic.next');
         this.steps = [];
@@ -109,7 +108,6 @@ export class Step extends Base {
         super();
         this.id = id;
         this.title = title || '';
-        this.i18n = Shared.get('i18n');
     }
 
     attached() {

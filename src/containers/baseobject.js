@@ -1,4 +1,10 @@
+import {inject} from "aurelia-property-injection";
+import {API} from "../components/api";
+
 export class BaseObject {
+    @inject(API)
+    api;
+
     fillData(data, validate) {
         if (this._freeze === true) {
             return;

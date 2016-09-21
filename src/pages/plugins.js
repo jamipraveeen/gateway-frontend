@@ -1,7 +1,6 @@
 import $ from "jquery";
 import {computedFrom} from "aurelia-framework";
 import {Base} from "../resources/base";
-import Shared from "../components/shared";
 import {Refresher} from "../components/refresher";
 import {Toolbox} from "../components/toolbox";
 import {Plugin} from "../containers/plugin";
@@ -9,8 +8,6 @@ import {Plugin} from "../containers/plugin";
 export class Plugins extends Base {
     constructor() {
         super();
-        this.api = Shared.get('api');
-        this.signaler = Shared.get('signaler');
         this.refresher = new Refresher(() => {
             this.loadPlugins().then(() => {
                 this.signaler.signal('reload-plugins');
