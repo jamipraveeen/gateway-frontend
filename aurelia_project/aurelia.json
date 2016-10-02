@@ -30,17 +30,24 @@
         "source": "src/**/*.css"
     },
     "copy": {
-        "options": {
-            "base": "src"
+        "modules": {
+            "src": [
+                "node_modules/font-awesome/css/font-awesome.min.css",
+                "node_modules/requirejs/bin/r.js",
+                "node_modules/text/text.js"
+            ],
+            "dest": "static"
         },
-        "src": [
-            "node_modules/font-awesome/**/font-awesome.min.css",
-            "node_modules/requirejs/**/r.js",
-            "node_modules/text/**/text.js",
-            "src/locale/**/*",
-            "src/images/**/*"
-        ],
-        "dest": "static"
+        "src": {
+            "options": {
+                "base": "src"
+            },
+            "src": [
+                "src/locale/**/*",
+                "src/images/**/*"
+            ],
+            "dest": "static"
+        }
     },
     "editor": {
         "id": "atom",
@@ -215,7 +222,7 @@
                     {
                         "name": "lodash",
                         "path": "../node_modules/lodash",
-                        "main": "lodash"
+                        "main": "index"
                     },
                     {
                         "name": "xmldom",
